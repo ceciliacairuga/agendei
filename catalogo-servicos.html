@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo de Serviços — agendei!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="views/assets/_common/styles/variables.css" />
+  <link rel="stylesheet" href="views/assets/_common/styles/catalogo.css" />
+</head>
+<body class="catalogo-body">
+
+  <!-- Detecta de onde veio: app ou admin -->
+  <header class="cat-header" id="cat-header">
+    <nav class="cat-nav" aria-label="Navegação">
+      <a href="#" class="cat-logo" id="cat-back-link" aria-label="Voltar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        <span class="cat-logo-text">agendei<span class="logo-accent">!</span></span>
+      </a>
+      <p class="cat-context-badge" id="cat-context-badge">Catálogo</p>
+    </nav>
+  </header>
+
+  <main class="cat-main" id="main-content">
+
+    <header class="cat-page-header">
+      <section class="cat-page-titles">
+        <p class="cat-eyebrow">Nossos serviços</p>
+        <h1 class="cat-title">Catálogo de Serviços</h1>
+        <p class="cat-subtitle">Conheça todos os serviços disponíveis no salão</p>
+      </section>
+
+      <!-- Barra de busca -->
+      <section class="cat-search-bar" aria-label="Busca">
+        <label class="sr-only" for="cat-search">Buscar serviço</label>
+        <section class="cat-search-wrapper">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input class="cat-search-input" type="search" id="cat-search" placeholder="Buscar por nome ou categoria..." />
+        </section>
+      </section>
+    </header>
+
+    <!-- Filtros de categoria -->
+    <section class="cat-filters" aria-label="Filtrar por categoria">
+      <ul class="cat-filter-list" role="list" id="cat-filter-list">
+        <li><button class="cat-filter-btn cat-filter-btn--active" data-cat="todos" aria-pressed="true">Todos</button></li>
+        <li><button class="cat-filter-btn" data-cat="cabelo" aria-pressed="false">✂️ Cabelo</button></li>
+        <li><button class="cat-filter-btn" data-cat="coloracao" aria-pressed="false">🎨 Coloração</button></li>
+        <li><button class="cat-filter-btn" data-cat="tratamento" aria-pressed="false">💆 Tratamentos</button></li>
+        <li><button class="cat-filter-btn" data-cat="unhas" aria-pressed="false">💅 Unhas</button></li>
+      </ul>
+    </section>
+
+    <!-- Grid de serviços -->
+    <section class="cat-grid" id="cat-grid" aria-label="Serviços disponíveis">
+
+      <!-- CABELO -->
+      <article class="cat-card" data-cat="cabelo" data-name="corte feminino">
+        <figure class="cat-card-thumb cat-thumb--cabelo" aria-hidden="true">✂️</figure>
+        <section class="cat-card-body">
+          <header class="cat-card-header">
+            <h2 class="cat-card-name">Corte Feminino</h2>
+            <span class="cat-price">R$ 60</span>
+          </header>
+          <p class="cat-card-desc">Corte personalizado para todos os estilos e tipos de cabelo, realizado por profissional especializada.</p>
+          <ul class="cat-card-info" role="list">
+            <li>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              45 minutos
+            </li>
+            <li>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Fernanda Lima · Juliana Ramos
+            </li>
+          </ul>
+          <footer class="cat-card-footer">
+            <span class="cat-pill cat-pill--cabelo">Cabelo</span>
+            <span class="cat-badge-status">Disponível</span>
+          </footer>
+        </section>
+      </article>
+
+      <article class="cat-card" data-cat="cabelo" data-name="corte + styling">
+        <figure class="cat-card-thumb cat-thumb--cabelo" aria-hidden="true">✂️</figure>
+        <section class="cat-card-body">
+          <header class="cat-card-header">
+            <h2 class="cat-card-name">Corte + Styling</h2>
+            <span class="cat-price">R$ 90</span>
+          </header>
+          <p class="cat-card-desc">Corte com finalização profissional usando escova e secador. Resultado elegante e duradouro.</p>
+          <ul class="cat-card-info" role="list">
+            <li>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              1h 15min
+            </li>
+            <li>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Fernanda Lima · Juliana Ramos
+            </li>
+          </ul>
+          <footer class="cat-card-footer">
+            <span class="cat-pill cat-pill--cabelo">Cabelo</span>
+            <span class="cat-badge-status">Disponível</span>
+          </footer>
+        </section>
+      </article>
+
+      <!-- COLORAÇÃO -->
+      <article class="cat-card" data-cat="coloracao" data-name="coloração completa">
+        <figure class="cat-card-thumb cat-thumb--coloracao" aria-hidden="true">🎨</figure>
+        <section class="cat-card-body">
+          <header class="cat-card-header">
+            <h2 class="cat-card-name">Coloração Completa</h2>
+            <span class="cat-price">R$ 150</span>
+          </header>
+          <p class="cat-card-desc">Coloração de toda a extensão dos fios com tintas de alta qualidade. Inclui hidratação pós-coloração.</p>
+          <ul class="cat-card-info" role="list">
+            <li>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              2h 30min
+            </li>
+            <li>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Fernanda Lima
+            </li>
+          </ul>
+          <footer class="cat-card-footer">
+            <span class="cat-pill cat-pill--coloracao">Coloração</span>
+            <span class="cat-badge-status">Disponível</span>
+          </footer>
+        </section>
+      </article>
+
+      <article class="cat-card" data-cat="coloracao" data-name="mechas / balayage">
+        <figure class="cat-card-thumb cat-thumb--coloracao" aria-hidden="true">🎨</figure>
+        <section class="cat-card-body">
+          <header class="cat-card-header">
+            <h2 class="cat-card-name">Mechas / Balayage</h2>
+            <span class="cat-price">R$ 200</span>
+          </header>
+          <p class="cat-card-desc">Técnica de iluminação natural e sofisticada. Efeito gradual e personalizado para cada tipo de fio.</p>
+          <ul class="cat-card-info" role="list">
+            <li>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              3h
+            </li>
+            <li>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Fernanda Lima
+            </li>
+          </ul>
+          <footer class="cat-card-footer">
+            <span class="cat-pill cat-pill--coloracao">Coloração</span>
+            <span class="cat-badge-status">Disponível</span>
+          </footer>
+        </section>
+      </article>
+
+      <!-- TRATAMENTO -->
+      <article class="cat-card" data-cat="tratamento" data-name="hidratação profunda">
+        <figure class="cat-card-thumb cat-thumb--tratamento" aria-hidden="true">💆</figure>
+        <section class="cat-card-body">
+          <header class="cat-card-header">
+            <h2 class="cat-card-name">Hidratação Profunda</h2>
+            <span class="cat-price">R$ 80</span>
+          </header>
+          <p class="cat-card-desc">Tratamento intensivo com máscara profissional para restaurar a hidratação, maciez e brilho dos fios.</p>
+          <ul class="cat-card-info" role="list">
+            <li>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              1h
+            </li>
+            <li>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Fernanda Lima · Juliana Ramos
+            </li>
+          </ul>
+          <footer class="cat-card-footer">
+            <span class="cat-pill cat-pill--tratamento">Tratamento</span>
+            <span class="cat-badge-status">Disponível</span>
+          </footer>
+        </section>
+      </article>
+
+      <article class="cat-card" data-cat="tratamento" data-name="escova progressiva">
+        <figure class="cat-card-thumb cat-thumb--tratamento" aria-hidden="true">💆</figure>
+        <section class="cat-card-body">
+          <header class="cat-card-header">
+            <h2 class="cat-card-name">Escova Progressiva</h2>
+            <span class="cat-price">R$ 250</span>
+          </header>
+          <p class="cat-card-desc">Alisamento progressivo que elimina o frizz e reduz o volume por meses. Fios mais lisos e manejáveis.</p>
+          <ul class="cat-card-info" role="list">
+            <li>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              3h 30min
+            </li>
+            <li>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Juliana Ramos
+            </li>
+          </ul>
+          <footer class="cat-card-footer">
+            <span class="cat-pill cat-pill--tratamento">Tratamento</span>
+            <span class="cat-badge-status">Disponível</span>
+          </footer>
+        </section>
+      </article>
+
+      <!-- UNHAS -->
+      <article class="cat-card" data-cat="unhas" data-name="manicure tradicional">
+        <figure class="cat-card-thumb cat-thumb--unhas" aria-hidden="true">💅</figure>
+        <section class="cat-card-body">
+          <header class="cat-card-header">
+            <h2 class="cat-card-name">Manicure Tradicional</h2>
+            <span class="cat-price">R$ 45</span>
+          </header>
+          <p class="cat-card-desc">Cuidado completo das unhas das mãos: cutilagem, lixamento, esmaltação e acabamento impecável.</p>
+          <ul class="cat-card-info" role="list">
+            <li>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              45 minutos
+            </li>
+            <li>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Carla Souza
+            </li>
+          </ul>
+          <footer class="cat-card-footer">
+            <span class="cat-pill cat-pill--unhas">Unhas</span>
+            <span class="cat-badge-status">Disponível</span>
+          </footer>
+        </section>
+      </article>
+
+      <article class="cat-card" data-cat="unhas" data-name="manicure gel">
+        <figure class="cat-card-thumb cat-thumb--unhas" aria-hidden="true">💅</figure>
+        <section class="cat-card-body">
+          <header class="cat-card-header">
+            <h2 class="cat-card-name">Manicure Gel</h2>
+            <span class="cat-price">R$ 80</span>
+          </header>
+          <p class="cat-card-desc">Esmaltação em gel de longa duração com acabamento profissional brilhante. Dura até 3 semanas.</p>
+          <ul class="cat-card-info" role="list">
+            <li>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              1h
+            </li>
+            <li>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Carla Souza
+            </li>
+          </ul>
+          <footer class="cat-card-footer">
+            <span class="cat-pill cat-pill--unhas">Unhas</span>
+            <span class="cat-badge-status">Disponível</span>
+          </footer>
+        </section>
+      </article>
+
+      <article class="cat-card" data-cat="unhas" data-name="pedicure completa">
+        <figure class="cat-card-thumb cat-thumb--unhas" aria-hidden="true">💅</figure>
+        <section class="cat-card-body">
+          <header class="cat-card-header">
+            <h2 class="cat-card-name">Pedicure Completa</h2>
+            <span class="cat-price">R$ 55</span>
+          </header>
+          <p class="cat-card-desc">Tratamento completo dos pés com esfoliação, cutilagem, hidratação e esmaltação com acabamento perfeito.</p>
+          <ul class="cat-card-info" role="list">
+            <li>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              1h
+            </li>
+            <li>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Carla Souza
+            </li>
+          </ul>
+          <footer class="cat-card-footer">
+            <span class="cat-pill cat-pill--unhas">Unhas</span>
+            <span class="cat-badge-status">Disponível</span>
+          </footer>
+        </section>
+      </article>
+
+    </section>
+
+    <!-- Estado vazio -->
+    <article class="cat-empty" id="cat-empty" hidden aria-live="polite">
+      <figure class="cat-empty-icon" aria-hidden="true">🔍</figure>
+      <h3 class="cat-empty-title">Nenhum serviço encontrado</h3>
+      <p class="cat-empty-desc">Tente buscar por outro nome ou categoria.</p>
+    </article>
+
+  </main>
+
+  <script src="views/assets/_common/scripts/catalogo.js"></script>
+</body>
+</html>

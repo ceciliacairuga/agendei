@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>agendei! — seu salão, do seu jeito</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="views/assets/_common/styles/reset.css" />
+  <link rel="stylesheet" href="views/assets/_common/styles/variables.css" />
+  <link rel="stylesheet" href="views/assets/public/styles/home.css" />
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <nav class="nav-container" aria-label="Navegação principal">
+      <a href="index.html" class="nav-logo" aria-label="agendei! — página inicial">
+        <span class="logo-text">agendei<span class="logo-accent">!</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#beneficios">Benefícios</a></li>
+        <li><a href="#cta">Sobre</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <section class="nav-actions" aria-label="Ações de acesso">
+        <a href="views/assets/public/login.html" class="btn btn-ghost">Entrar</a>
+        <a href="views/assets/public/cadastro.html" class="btn btn-primary">Agendar agora</a>
+      </section>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav-links">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero" id="hero" aria-label="Apresentação principal">
+      <article class="hero-content">
+        <p class="hero-eyebrow">Bem-vindo ao futuro dos salões</p>
+        <h1 class="hero-title">
+          Beleza que<br />
+          <em>cabe na sua</em><br />
+          agenda.
+        </h1>
+        <p class="hero-description">
+          Agende horários com os melhores profissionais em segundos. Sem filas,
+          sem ligações — tudo online, na palma da sua mão.
+        </p>
+        <section class="hero-cta" aria-label="Chamadas para ação">
+          <a href="views/assets/public/cadastro.html" class="btn btn-primary btn-large">
+            Criar minha conta
+          </a>
+          <a href="#servicos" class="btn btn-outline btn-large">
+            Ver serviços
+          </a>
+        </section>
+        <ul class="hero-stats" role="list" aria-label="Números do sistema">
+          <li class="stat-item">
+            <strong class="stat-number">2.4k+</strong>
+            <span class="stat-label">Agendamentos feitos</span>
+          </li>
+          <li class="stat-divider" aria-hidden="true"></li>
+          <li class="stat-item">
+            <strong class="stat-number">180+</strong>
+            <span class="stat-label">Profissionais cadastrados</span>
+          </li>
+          <li class="stat-divider" aria-hidden="true"></li>
+          <li class="stat-item">
+            <strong class="stat-number">98%</strong>
+            <span class="stat-label">Satisfação dos clientes</span>
+          </li>
+        </ul>
+      </article>
+<!--
+      <aside class="hero-visual" aria-label="Prévia do painel de agendamentos">
+        <article class="booking-card" aria-label="Card de agendamento em destaque">
+          <header class="booking-card-header">
+            <span class="booking-badge">Próximo agendamento</span>
+          </header>
+          <section class="booking-card-body">
+            <p class="booking-service-name">Corte + Coloração</p>
+            <ul class="booking-meta" role="list">
+              <li>
+                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                Amanhã, 14h30
+              </li>
+              <li>
+                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+                Fernanda Lima
+              </li>
+              <li>
+                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                2h de duração
+              </li>
+            </ul>
+          </section>
+          <footer class="booking-card-footer">
+            <span class="booking-status">Confirmado</span>
+            <button class="btn-icon" aria-label="Ver detalhes do agendamento">
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </footer>
+        </article> -->
+
+       <!-- <article class="availability-card" aria-label="Horários disponíveis">
+          <p class="avail-title">Horários disponíveis hoje</p>
+          <ul class="avail-slots" role="list">
+            <li><button class="slot-btn" aria-label="Agendar às 9h">09:00</button></li>
+            <li><button class="slot-btn slot-selected" aria-label="Horário selecionado: 11h30" aria-pressed="true">11:30</button></li>
+            <li><button class="slot-btn" aria-label="Agendar às 13h">13:00</button></li>
+            <li><button class="slot-btn slot-busy" disabled aria-label="Horário ocupado: 15h">15:00</button></li>
+            <li><button class="slot-btn" aria-label="Agendar às 17h">17:00</button></li>
+          </ul>
+        </article>-->
+
+        <figure class="deco-blob" aria-hidden="true"></figure>
+        <figure class="deco-ring" aria-hidden="true"></figure>
+      </aside>
+    </section>
+
+    <section class="features" id="beneficios" aria-labelledby="features-title">
+      <header class="section-header">
+        <p class="section-eyebrow">Por que o agendei!?</p>
+        <h2 class="section-title" id="features-title">Tudo o que você precisa, em um só lugar</h2>
+      </header>
+      <ul class="features-grid" role="list">
+        <li class="feature-card">
+          <figure class="feature-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22C6.5 22 2 17.5 2 12S6.5 2 12 2s10 4.5 10 10-4.5 10-10 10z"/><path d="M12 6v6l4 2"/></svg>
+          </figure>
+          <h3 class="feature-title">Agendamento em segundos</h3>
+          <p class="feature-desc">Escolha o serviço, o profissional e o horário que preferir. Confirmação imediata, sem burocracia.</p>
+        </li>
+        <li class="feature-card">
+          <figure class="feature-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
+          </figure>
+          <h3 class="feature-title">Histórico completo</h3>
+          <p class="feature-desc">Visualize todos os seus agendamentos passados e futuros num painel claro e organizado.</p>
+        </li>
+        <li class="feature-card">
+          <figure class="feature-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          </figure>
+          <h3 class="feature-title">Sem filas ou espera</h3>
+          <p class="feature-desc">Chega no horário exato do seu atendimento. Seu tempo é precioso — nós respeitamos isso.</p>
+        </li>
+        <li class="feature-card feature-card--highlight">
+          <figure class="feature-icon feature-icon--light" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </figure>
+          <h3 class="feature-title">Profissionais verificados</h3>
+          <p class="feature-desc">Todos os profissionais passam por um processo de cadastro rigoroso. Qualidade garantida em cada atendimento.</p>
+        </li>
+        <li class="feature-card">
+          <figure class="feature-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12 19.79 19.79 0 0 1 1.08 3.5a2 2 0 0 1 1.95-2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/></svg>
+          </figure>
+          <h3 class="feature-title">Lembretes automáticos</h3>
+          <p class="feature-desc">Notificações por e-mail para que você nunca esqueça um compromisso importante no salão.</p>
+        </li>
+        <li class="feature-card">
+          <figure class="feature-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </figure>
+          <h3 class="feature-title">Dados seguros</h3>
+          <p class="feature-desc">Suas informações são protegidas com criptografia de ponta. Privacidade é uma prioridade para nós.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="services" id="servicos" aria-labelledby="services-title">
+      <header class="section-header">
+        <p class="section-eyebrow">Nossos serviços</p>
+        <h2 class="section-title" id="services-title">Do corte à transformação completa</h2>
+      </header>
+      <ul class="services-grid" role="list">
+        <li class="service-card">
+          <figure class="service-image service-image--corte" aria-hidden="true">
+            <span class="service-emoji" aria-hidden="true">✂️</span>
+          </figure>
+          <article class="service-info">
+            <h3 class="service-name">Corte & Styling</h3>
+            <p class="service-desc">Cortes modernos e personalizados para todos os tipos de cabelo e estilo pessoal.</p>
+            <footer class="service-footer">
+              <span class="service-price">a partir de R$ 60</span>
+              <a href="views/assets/public/cadastro.html" class="btn btn-sm">Agendar</a>
+            </footer>
+          </article>
+        </li>
+        <li class="service-card">
+          <figure class="service-image service-image--coloracao" aria-hidden="true">
+            <span class="service-emoji" aria-hidden="true">🎨</span>
+          </figure>
+          <article class="service-info">
+            <h3 class="service-name">Coloração & Mechas</h3>
+            <p class="service-desc">Técnicas avançadas de colorimetria para realçar sua beleza natural com cores vibrantes.</p>
+            <footer class="service-footer">
+              <span class="service-price">a partir de R$ 120</span>
+              <a href="views/assets/public/cadastro.html" class="btn btn-sm">Agendar</a>
+            </footer>
+          </article>
+        </li>
+        <li class="service-card">
+          <figure class="service-image service-image--tratamento" aria-hidden="true">
+            <span class="service-emoji" aria-hidden="true">💆</span>
+          </figure>
+          <article class="service-info">
+            <h3 class="service-name">Tratamentos Capilares</h3>
+            <p class="service-desc">Hidratação profunda, reconstrução e nutrição para cabelos que brilham de saúde.</p>
+            <footer class="service-footer">
+              <span class="service-price">a partir de R$ 80</span>
+              <a href="views/assets/public/cadastro.html" class="btn btn-sm">Agendar</a>
+            </footer>
+          </article>
+        </li>
+        <li class="service-card">
+          <figure class="service-image service-image--manicure" aria-hidden="true">
+            <span class="service-emoji" aria-hidden="true">💅</span>
+          </figure>
+          <article class="service-info">
+            <h3 class="service-name">Manicure & Pedicure</h3>
+            <p class="service-desc">Cuidados completos para suas mãos e pés com os melhores esmaltes e acabamentos.</p>
+            <footer class="service-footer">
+              <span class="service-price">a partir de R$ 45</span>
+              <a href="views/assets/public/cadastro.html" class="btn btn-sm">Agendar</a>
+            </footer>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <section class="testimonials" id="depoimentos" aria-labelledby="testimonials-title">
+      <header class="section-header section-header--light">
+        <p class="section-eyebrow section-eyebrow--light">Quem já usou</p>
+        <h2 class="section-title section-title--light" id="testimonials-title">Clientes que adoram o agendei!</h2>
+      </header>
+      <ul class="testimonials-grid" role="list">
+        <li class="testimonial-card">
+          <blockquote>
+            <p class="testimonial-text">"Acabei com as ligações intermináveis para marcar horário. Agora acho o horário perfeito em segundos, do meu celular, a qualquer hora."</p>
+          </blockquote>
+          <footer class="testimonial-author">
+            <figure class="author-avatar" aria-hidden="true">JM</figure>
+            <section class="author-info">
+              <cite class="author-name">Juliana Mendes</cite>
+              <p class="author-role">Cliente há 8 meses</p>
+            </section>
+          </footer>
+        </li>
+        <li class="testimonial-card testimonial-card--featured">
+          <blockquote>
+            <p class="testimonial-text">"Como profissional, o agendei! organizou completamente minha agenda. Tenho mais clientes e mais tempo para cada um deles."</p>
+          </blockquote>
+          <footer class="testimonial-author">
+            <figure class="author-avatar author-avatar--dark" aria-hidden="true">RS</figure>
+            <section class="author-info">
+              <cite class="author-name">Renata Silva</cite>
+              <p class="author-role">Cabeleireira — 2 anos no sistema</p>
+            </section>
+          </footer>
+        </li>
+        <li class="testimonial-card">
+          <blockquote>
+            <p class="testimonial-text">"Os lembretes automáticos são incríveis! Nunca mais esqueci um horário. A experiência toda é muito fluida e bonita."</p>
+          </blockquote>
+          <footer class="testimonial-author">
+            <figure class="author-avatar" aria-hidden="true">PF</figure>
+            <section class="author-info">
+              <cite class="author-name">Pedro Ferreira</cite>
+              <p class="author-role">Cliente há 3 meses</p>
+            </section>
+          </footer>
+        </li>
+      </ul>
+    </section>
+
+    <section class="cta-section" id="cta" aria-labelledby="cta-title">
+      <article class="cta-content">
+        <h2 class="cta-title" id="cta-title">Quem somos?</h2>
+        <p class="cta-desc">A Agendei! nasceu para facilitar a conexão entre clientes e salões de beleza de forma prática, rápida e moderna. Nosso objetivo é transformar a experiência de agendamento, permitindo que tudo seja feito online, com organização, conforto e poucos cliques. Acreditamos que cuidar de si mesmo deve ser simples, acessível e sem complicações — por isso criamos uma plataforma elegante e intuitiva para aproximar pessoas dos seus serviços favoritos.
+</p>
+        <section class="cta-actions" aria-label="Ações de cadastro">
+          <a href="views/assets/public/cadastro.html" class="btn btn-primary btn-large btn-white">
+            Criar conta grátis
+          </a>
+          <a href="#servicos" class="btn btn-ghost-light btn-large">
+            Ver serviços primeiro
+          </a>
+        </section>
+      </article>
+      <figure class="cta-deco" aria-hidden="true">
+        <span class="cta-deco-circle c1"></span>
+        <span class="cta-deco-circle c2"></span>
+        <span class="cta-deco-star">✦</span>
+      </figure>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" id="contato">
+    <section class="footer-main">
+      <article class="footer-brand">
+        <p class="footer-logo">agendei<span class="logo-accent">!</span></p>
+        <p class="footer-tagline">Beleza que cabe na sua agenda.</p>
+        <nav class="footer-social" aria-label="Redes sociais">
+          <a href="#" aria-label="Instagram do agendei!">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="WhatsApp do agendei!">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </a>
+        </nav>
+      </article>
+      <nav class="footer-nav" aria-label="Mapa do site">
+        <section class="footer-nav-col">
+          <h3 class="footer-nav-title">Sistema</h3>
+          <ul role="list">
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#cta">Sobre nós</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </section>
+        <section class="footer-nav-col">
+          <h3 class="footer-nav-title">Conta</h3>
+          <ul role="list">
+            <li><a href="views/assets/public/login.html">Entrar</a></li>
+            <li><a href="views/assets/public/cadastro.html">Criar conta</a></li>
+          </ul>
+        </section>
+        <section class="footer-nav-col">
+          <h3 class="footer-nav-title">Contato</h3>
+          <ul role="list">
+            <li><a href="mailto:contato@agendei.com.br">contato@agendei.com.br</a></li>
+            <li><a href="tel:+5551999990000">(51) 9 9999-0000</a></li>
+          </ul>
+        </section>
+      </nav>
+    </section>
+    <section class="footer-bottom">
+      <p>&copy; 2025 agendei! — Todos os direitos reservados.</p>
+    </section>
+  </footer>
+
+  <script src="views/assets/public/scripts/home.js"></script>
+</body>
+</html>

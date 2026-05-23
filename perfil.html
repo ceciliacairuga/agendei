@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meu Perfil — agendei!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="views/assets/_common/styles/variables.css" />
+  <link rel="stylesheet" href="views/assets/app/styles/app-layout.css" />
+  <link rel="stylesheet" href="views/assets/app/styles/perfil.css" />
+</head>
+<body class="app-body">
+
+  <aside class="sidebar" id="sidebar" aria-label="Menu do aplicativo">
+    <header class="sidebar-header">
+      <p class="sidebar-logo">agendei<span class="logo-accent">!</span></p>
+      <button class="sidebar-close" id="sidebar-close" aria-label="Fechar menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </header>
+    <nav class="sidebar-nav" aria-label="Navegação principal">
+      <ul role="list">
+        <li><a href="dashboard.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          Painel
+        </a></li>
+        <li><a href="agendamentos.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Agendamentos
+        </a></li>
+        <li><a href="catalogo-servicos.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          Serviços
+        </a></li>
+        <li><a href="perfil.html" class="nav-item nav-item--active" aria-current="page">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Meu Perfil
+        </a></li>
+      </ul>
+    </nav>
+    <footer class="sidebar-footer">
+      <article class="user-chip">
+        <figure class="user-avatar" aria-hidden="true">CC</figure>
+        <section>
+          <p class="user-name-text">Cristiane Cairuga</p>
+          <p class="user-role-text">Cliente</p>
+        </section>
+      </article>
+      <a href="index.html" class="logout-btn" aria-label="Sair da conta">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      </a>
+    </footer>
+  </aside>
+
+  <figure class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></figure>
+
+  <section class="app-content">
+    <header class="topbar">
+      <button class="topbar-hamburger" id="sidebar-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="sidebar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <p class="topbar-page-title">Meu Perfil</p>
+    </header>
+
+    <main class="page-body" id="main-content">
+
+      <!-- Cabeçalho -->
+      <header class="profile-hero">
+        <figure class="profile-avatar-lg" aria-label="Foto de perfil de Maria Costa">CC</figure>
+        <section class="profile-hero-info">
+          <h1 class="profile-name">Cristiane Cairuga</h1>
+          <p class="profile-meta">Cliente desde março de 2024 · 12 atendimentos realizados</p>
+          <section class="profile-badges" aria-label="Conquistas">
+            <span class="profile-badge">⭐ Cliente fiel</span>
+            <span class="profile-badge">💅 Apaixonada por unhas</span>
+          </section>
+        </section>
+        <a href="novo-agendamento.html" class="btn btn--primary" aria-label="Fazer novo agendamento">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Novo agendamento
+        </a>
+      </header>
+
+      <section class="profile-grid">
+
+        <!-- Dados pessoais -->
+        <article class="panel" aria-labelledby="personal-title">
+          <header class="panel-header">
+            <h2 class="panel-title" id="personal-title">Dados Pessoais</h2>
+            <button class="btn-edit-panel" id="toggle-edit-personal" aria-expanded="false" aria-label="Editar dados pessoais">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              Editar
+            </button>
+          </header>
+
+          <!-- Visualização -->
+          <section class="profile-view" id="personal-view">
+            <ul class="info-list" role="list">
+              <li class="info-row">
+                <figure class="info-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </figure>
+                <section>
+                  <p class="info-label">Nome completo</p>
+                  <p class="info-value" id="view-name">Cristiane Cairuga</p>
+                </section>
+              </li>
+              <li class="info-row">
+                <figure class="info-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </figure>
+                <section>
+                  <p class="info-label">E-mail</p>
+                  <p class="info-value" id="view-email">criscairuga@gmail.com</p>
+                </section>
+              </li>
+              <li class="info-row">
+                <figure class="info-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12 19.79 19.79 0 0 1 1.08 3.5a2 2 0 0 1 1.95-2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/></svg>
+                </figure>
+                <section>
+                  <p class="info-label">Telefone</p>
+                  <p class="info-value" id="view-phone">(51) 9 9999-0000</p>
+                </section>
+              </li>
+              <li class="info-row">
+                <figure class="info-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                </figure>
+                <section>
+                  <p class="info-label">Data de nascimento</p>
+                  <p class="info-value" id="view-birthdate">24 de fevereiro de 1977</p>
+                </section>
+              </li>
+            </ul>
+          </section>
+
+          <!-- Formulário de edição -->
+          <form class="profile-form" id="personal-form" novalidate hidden>
+            <section class="form-row-2">
+              <fieldset class="form-group">
+                <label class="form-label" for="edit-firstname">Nome</label>
+                <input class="form-input" type="text" id="edit-firstname" name="first_name" value="Cristiane" autocomplete="given-name" required />
+                <p class="form-error" id="err-firstname" aria-live="polite" hidden></p>
+              </fieldset>
+              <fieldset class="form-group">
+                <label class="form-label" for="edit-lastname">Sobrenome</label>
+                <input class="form-input" type="text" id="edit-lastname" name="last_name" value="Cairuga" autocomplete="family-name" required />
+                <p class="form-error" id="err-lastname" aria-live="polite" hidden></p>
+              </fieldset>
+            </section>
+            <fieldset class="form-group">
+              <label class="form-label" for="edit-email">E-mail</label>
+              <input class="form-input" type="email" id="edit-email" name="email" value="criscairuga@gmail.com" autocomplete="email" required />
+              <p class="form-error" id="err-email" aria-live="polite" hidden></p>
+            </fieldset>
+            <fieldset class="form-group">
+              <label class="form-label" for="edit-phone">Telefone</label>
+              <input class="form-input" type="tel" id="edit-phone" name="phone" value="(51) 9 9999-0000" autocomplete="tel" />
+            </fieldset>
+            <fieldset class="form-group">
+              <label class="form-label" for="edit-birthdate">Data de nascimento</label>
+              <input class="form-input" type="date" id="edit-birthdate" name="birthdate" value="1977-02-24" autocomplete="bday" />
+            </fieldset>
+            <p class="form-feedback form-success" id="personal-success" aria-live="polite" hidden>
+              Dados atualizados com sucesso!
+            </p>
+            <footer class="form-actions">
+              <button type="button" class="btn btn--outline" id="cancel-edit-personal">Cancelar</button>
+              <button type="submit" class="btn btn--primary" id="save-personal">Salvar alterações</button>
+            </footer>
+          </form>
+        </article>
+
+        <!-- Coluna direita -->
+        <section class="profile-side">
+
+          <!-- Alterar senha -->
+          <article class="panel" aria-labelledby="password-title">
+            <header class="panel-header">
+              <h2 class="panel-title" id="password-title">Alterar Senha</h2>
+              <button class="btn-edit-panel" id="toggle-edit-password" aria-expanded="false" aria-label="Alterar senha">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Alterar
+              </button>
+            </header>
+            <section class="password-placeholder" id="password-placeholder">
+              <p class="password-hint">Sua senha está protegida. Clique em Alterar para definir uma nova senha.</p>
+            </section>
+            <form class="profile-form" id="password-form" novalidate hidden>
+              <fieldset class="form-group">
+                <label class="form-label" for="current-password">Senha atual</label>
+                <section class="input-wrapper">
+                  <input class="form-input" type="password" id="current-password" name="current_password" placeholder="••••••••" required />
+                  <button type="button" class="toggle-pwd" data-target="current-password" aria-label="Mostrar senha">
+                    <svg class="icon-eye" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <svg class="icon-eye-off" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" hidden><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                  </button>
+                </section>
+                <p class="form-error" id="err-current-pwd" aria-live="polite" hidden></p>
+              </fieldset>
+              <fieldset class="form-group">
+                <label class="form-label" for="new-password">Nova senha</label>
+                <section class="input-wrapper">
+                  <input class="form-input" type="password" id="new-password" name="new_password" placeholder="Mínimo 8 caracteres" required />
+                  <button type="button" class="toggle-pwd" data-target="new-password" aria-label="Mostrar nova senha">
+                    <svg class="icon-eye" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <svg class="icon-eye-off" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" hidden><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                  </button>
+                </section>
+                <p class="form-error" id="err-new-pwd" aria-live="polite" hidden></p>
+              </fieldset>
+              <fieldset class="form-group">
+                <label class="form-label" for="confirm-password">Confirmar nova senha</label>
+                <input class="form-input" type="password" id="confirm-password" name="confirm_password" placeholder="Repita a nova senha" required />
+                <p class="form-error" id="err-confirm-pwd" aria-live="polite" hidden></p>
+              </fieldset>
+              <p class="form-feedback form-success" id="password-success" aria-live="polite" hidden>
+                Senha alterada com sucesso!
+              </p>
+              <footer class="form-actions">
+                <button type="button" class="btn btn--outline" id="cancel-edit-password">Cancelar</button>
+                <button type="submit" class="btn btn--primary" id="save-password">Salvar senha</button>
+              </footer>
+            </form>
+          </article>
+
+          <!-- Histórico resumido -->
+          <article class="panel" aria-labelledby="history-title">
+            <header class="panel-header">
+              <h2 class="panel-title" id="history-title">Histórico Recente</h2>
+              <a href="agendamentos.html" class="panel-action">Ver todos</a>
+            </header>
+            <ul class="history-list" role="list">
+              <li class="history-item">
+                <figure class="history-emoji" aria-hidden="true">✂️</figure>
+                <section class="history-info">
+                  <p class="history-name">Corte + Coloração</p>
+                  <p class="history-meta">02 mai 2025 · Fernanda Lima</p>
+                </section>
+                <span class="badge badge--blue">Concluído</span>
+              </li>
+              <li class="history-item">
+                <figure class="history-emoji" aria-hidden="true">💅</figure>
+                <section class="history-info">
+                  <p class="history-name">Manicure Gel</p>
+                  <p class="history-meta">18 abr 2025 · Carla Souza</p>
+                </section>
+                <span class="badge badge--blue">Concluído</span>
+              </li>
+              <li class="history-item">
+                <figure class="history-emoji" aria-hidden="true">💆</figure>
+                <section class="history-info">
+                  <p class="history-name">Hidratação Profunda</p>
+                  <p class="history-meta">05 abr 2025 · Fernanda Lima</p>
+                </section>
+                <span class="badge badge--blue">Concluído</span>
+              </li>
+            </ul>
+          </article>
+
+        </section>
+      </section>
+
+    </main>
+  </section>
+
+  <script src="views/assets/_common/scripts/sidebar.js"></script>
+  <script src="views/assets/app/scripts/perfil.js"></script>
+</body>
+</html>

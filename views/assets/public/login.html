@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entrar — agendei!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/_common/styles/variables.css" />
+  <link rel="stylesheet" href="../../assets/public/styles/auth.css" />
+</head>
+<body class="auth-page">
+
+  <main class="auth-main">
+    <section class="auth-visual" aria-hidden="true">
+      <figure class="auth-visual-bg"></figure>
+      <article class="auth-brand-block">
+        <p class="auth-logo">agendei<span class="logo-accent">!</span></p>
+        <h2 class="auth-visual-title">Seu salão favorito,<br /><em>a um clique de você.</em></h2>
+        <p class="auth-visual-sub">Agende, acompanhe e gerencie seus horários com facilidade e elegância.</p>
+      </article>
+      <figure class="auth-deco-ring r1"></figure>
+      <figure class="auth-deco-ring r2"></figure>
+      <span class="auth-deco-star" aria-hidden="true">✦</span>
+    </section>
+
+    <section class="auth-form-area">
+      <header class="auth-form-header">
+        <a href="index.html" class="back-link" aria-label="Voltar para a página inicial">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+          Início
+        </a>
+        <p class="auth-step">Área do cliente</p>
+        <h1 class="auth-title">Bem-vindo de volta</h1>
+        <p class="auth-subtitle">Entre na sua conta para acessar seus agendamentos.</p>
+      </header>
+
+      <form class="auth-form" id="login-form" novalidate>
+        <fieldset class="form-group">
+          <label class="form-label" for="email">E-mail</label>
+          <input
+            class="form-input"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="seu@email.com"
+            autocomplete="email"
+            required
+          />
+          <p class="form-error" id="email-error" aria-live="polite" hidden></p>
+        </fieldset>
+
+        <fieldset class="form-group">
+          <label class="form-label" for="password">
+            Senha
+            <a href="#" class="form-label-link">Esqueci a senha</a>
+          </label>
+          <section class="input-wrapper">
+            <input
+              class="form-input"
+              type="password"
+              id="password"
+              name="password"
+              placeholder="••••••••"
+              autocomplete="current-password"
+              required
+            />
+            <button type="button" class="toggle-password" id="toggle-password" aria-label="Mostrar senha" aria-controls="password">
+              <svg class="icon-eye" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg class="icon-eye-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" hidden><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            </button>
+          </section>
+          <p class="form-error" id="password-error" aria-live="polite" hidden></p>
+        </fieldset>
+
+        <p class="form-feedback form-success" id="form-success" aria-live="polite" hidden>
+          Login realizado com sucesso! Redirecionando...
+        </p>
+        <p class="form-feedback form-error-global" id="form-error-global" aria-live="polite" hidden></p>
+
+        <button type="button" class="btn btn-primary btn-large btn-full" id="submit-btn">
+         Entrar na minha conta
+        </button>
+      </form>
+
+       <aside class="auth-admin-switch" aria-label="Acesso administrativo">
+          <span class="auth-admin-switch-text">É um administrador?</span>
+          <a href="login-admin.html" class="auth-admin-switch-link">
+            Entrar
+            <svg width="10" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </aside>
+
+      <footer class="auth-form-footer">
+        <p>Não tem conta? <a href="cadastro.html" class="auth-link">Criar conta grátis</a></p>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+  const submitBtn = document.querySelector("#submit-btn");
+
+  submitBtn.addEventListener("click", function () {
+    alert("clicou");
+    window.location.href = "file:///C:/wamp64/www/agendei/dashboard.html";
+  });
+  </script>
+</body>
+</html>

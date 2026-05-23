@@ -1,0 +1,146 @@
+/* views/assets/app/styles/agendamentos.css */
+
+.page-heading--flex {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Filtros */
+.filter-bar {
+  margin-bottom: 1.5rem;
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.filter-tab {
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  background: var(--color-bg-white);
+  border: 1.5px solid var(--color-brand-pale);
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: all var(--transition);
+}
+.filter-tab:hover {
+  color: var(--color-brand-deep);
+  border-color: var(--color-brand-light);
+}
+.filter-tab--active {
+  background: var(--color-brand-deep);
+  color: #fff;
+  border-color: var(--color-brand-deep);
+}
+
+/* Cards */
+.appt-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.appt-card {
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-brand-pale);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.appt-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.appt-card.hidden { display: none; }
+
+.appt-card-date {
+  width: 60px;
+  min-height: 64px;
+  border-radius: var(--radius-md);
+  background: var(--color-brand-blush);
+  color: var(--color-brand-deep);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 0;
+}
+.appt-card-date strong { font-size: 1.4rem; font-weight: 800; line-height: 1; }
+.appt-card-date span   { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+.appt-card-date p      { font-size: 0.6rem; color: var(--color-text-muted); margin-top: 1px; }
+
+.appt-card-date--cancelled {
+  background: #fef2f2;
+  color: #9ca3af;
+}
+
+.appt-card-body {
+  flex: 1;
+  min-width: 0;
+}
+.appt-card-body--cancelled { opacity: 0.55; }
+
+.appt-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.appt-card-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.appt-card-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.appt-card-meta li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.appt-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-brand-pale);
+  border-radius: var(--radius-lg);
+}
+.empty-icon  { font-size: 3rem; margin-bottom: 1rem; }
+.empty-title { font-family: var(--font-display); font-size: 1.2rem; color: var(--color-text-primary); margin-bottom: 0.5rem; }
+.empty-desc  { font-size: 0.88rem; color: var(--color-text-muted); margin-bottom: 1.5rem; }
+
+@media (max-width: 600px) {
+  .appt-card { flex-direction: column; align-items: flex-start; }
+  .appt-card-date { width: 100%; flex-direction: row; justify-content: flex-start; gap: 0.5rem; min-height: auto; padding: 0.5rem 0.75rem; }
+  .appt-card-actions { flex-direction: row; width: 100%; }
+}

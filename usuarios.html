@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestão de Usuários — agendei!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="views/assets/_common/styles/variables.css" />
+  <link rel="stylesheet" href="views/assets/admin/styles/admin-layout.css" />
+  <link rel="stylesheet" href="views/assets/admin/styles/usuarios.css" />
+</head>
+<body class="admin-body">
+
+  <aside class="sidebar" id="sidebar" aria-label="Menu administrativo">
+    <header class="sidebar-header">
+      <p class="sidebar-logo">
+        agendei<span class="logo-accent">!</span>
+        <span class="admin-role-badge">Admin</span>
+      </p>
+      <button class="sidebar-close" id="sidebar-close" aria-label="Fechar menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </header>
+
+    <nav class="sidebar-nav" aria-label="Navegação administrativa">
+      <ul role="list">
+        <li><a href="painel.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          Painel
+        </a></li>
+        <li><a href="usuarios.html" class="nav-item nav-item--active" aria-current="page">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Usuários
+        </a></li>
+        <li><a href="catalogo-servicos.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          Serviços
+        </a></li>
+      </ul>
+    </nav>
+
+    <footer class="sidebar-footer">
+      <article class="user-chip">
+        <figure class="user-avatar" aria-hidden="true">AD</figure>
+        <section>
+          <p class="user-name-text">Administrador</p>
+          <p class="user-role-text">admin@agendei.com</p>
+        </section>
+      </article>
+      <a href="views/assets/public/login.html" class="logout-btn" aria-label="Sair do sistema">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      </a>
+    </footer>
+  </aside>
+
+  <figure class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></figure>
+
+  <section class="admin-content">
+
+    <header class="topbar">
+      <button class="topbar-hamburger" id="sidebar-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="sidebar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <nav class="breadcrumb" aria-label="Caminho de navegação">
+        <ol role="list">
+          <li><a href="painel.html">Administração</a></li>
+          <li aria-current="page">Usuários</li>
+        </ol>
+      </nav>
+    </header>
+
+    <main class="admin-main" id="main-content">
+
+      <header class="page-header users-page-header">
+        <section>
+          <h1 class="page-title">Gestão de Usuários</h1>
+          <p class="page-subtitle">Liste, edite e remova clientes cadastrados no sistema.</p>
+        </section>
+        <button type="button" class="btn btn-primary" id="btn-new-user">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Novo usuário
+        </button>
+      </header>
+
+      <section class="users-toolbar" aria-label="Filtros">
+        <label class="search-field">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="search" id="user-search" placeholder="Buscar por nome, e-mail ou telefone..." />
+        </label>
+        <p class="users-count" id="users-count">0 usuários</p>
+      </section>
+
+      <article class="panel users-panel" aria-labelledby="users-table-title">
+        <header class="panel-header">
+          <h2 class="panel-title" id="users-table-title">Usuários cadastrados</h2>
+        </header>
+
+        <section class="users-table-wrapper">
+          <table class="users-table" aria-describedby="users-table-title">
+            <thead>
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Nascimento</th>
+                <th scope="col" class="col-actions">Ações</th>
+              </tr>
+            </thead>
+            <tbody id="users-tbody">
+              <!-- Linhas renderizadas via usuarios.js -->
+            </tbody>
+          </table>
+
+          <section class="users-empty" id="users-empty" hidden>
+            <p>Nenhum usuário encontrado.</p>
+          </section>
+        </section>
+      </article>
+    </main>
+  </section>
+
+  <!-- Modal de edição/criação -->
+  <section class="modal" id="user-modal" role="dialog" aria-modal="true" aria-labelledby="user-modal-title" hidden>
+    <figure class="modal-backdrop" id="user-modal-backdrop" aria-hidden="true"></figure>
+    <article class="modal-card" role="document">
+      <header class="modal-header">
+        <h2 class="modal-title" id="user-modal-title">Editar usuário</h2>
+        <button type="button" class="modal-close" id="user-modal-close" aria-label="Fechar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </header>
+
+      <form class="modal-form" id="user-form" novalidate>
+        <input type="hidden" id="user-id" />
+
+        <fieldset class="form-group">
+          <label class="form-label" for="user-name">Nome completo</label>
+          <input class="form-input" type="text" id="user-name" required />
+        </fieldset>
+
+        <fieldset class="form-group">
+          <label class="form-label" for="user-email">E-mail</label>
+          <input class="form-input" type="email" id="user-email" required />
+        </fieldset>
+
+        <fieldset class="form-group">
+          <label class="form-label" for="user-phone">Telefone</label>
+          <input class="form-input" type="tel" id="user-phone" placeholder="(00) 00000-0000" required />
+        </fieldset>
+
+        <fieldset class="form-group">
+          <label class="form-label" for="user-birthdate">Data de nascimento</label>
+          <input class="form-input" type="date" id="user-birthdate" required />
+        </fieldset>
+
+        <fieldset class="form-group">
+          <label class="form-label" for="user-password">Senha</label>
+          <input class="form-input" type="password" id="user-password" placeholder="Deixe em branco para manter" />
+        </fieldset>
+
+        <p class="form-feedback form-error-global" id="user-form-error" aria-live="polite" hidden></p>
+
+        <footer class="modal-actions">
+          <button type="button" class="btn btn-ghost" id="user-cancel-btn">Cancelar</button>
+          <button type="button" class="btn btn-primary" id="user-save-btn">Salvar</button>
+        </footer>
+      </form>
+    </article>
+  </section>
+
+  <!-- Modal de confirmação de exclusão -->
+  <section class="modal" id="confirm-modal" role="alertdialog" aria-modal="true" aria-labelledby="confirm-modal-title" hidden>
+    <figure class="modal-backdrop" id="confirm-modal-backdrop" aria-hidden="true"></figure>
+    <article class="modal-card modal-card--small" role="document">
+      <header class="modal-header">
+        <h2 class="modal-title" id="confirm-modal-title">Excluir usuário</h2>
+      </header>
+      <section class="modal-body">
+        <p id="confirm-modal-text">Tem certeza que deseja excluir este usuário? Esta ação não pode ser desfeita.</p>
+      </section>
+      <footer class="modal-actions">
+        <button type="button" class="btn btn-ghost" id="confirm-cancel-btn">Cancelar</button>
+        <button type="button" class="btn btn-danger" id="confirm-delete-btn">Excluir</button>
+      </footer>
+    </article>
+  </section>
+
+  <script src="views/assets/_common/scripts/sidebar.js"></script>
+  <script src="views/assets/admin/scripts/usuarios.js"></script>
+</body>
+</html>

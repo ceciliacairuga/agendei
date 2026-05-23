@@ -1,0 +1,82 @@
+/* views/assets/_common/styles/variables.css */
+
+:root {
+  --color-brand-deep:    #722E43;
+  --color-brand-mid:     #B44A60;
+  --color-brand-light:   #CC7F91;
+  --color-brand-pale:    #EADFDB;
+  --color-brand-blush:   #F7EFF2;
+
+  --color-text-primary:  #1A0D11;
+  --color-text-secondary:#6B3D4E;
+  --color-text-muted:    #A07080;
+  --color-text-on-dark:  #F7EFF2;
+
+  --color-bg-white:      #FFFFFF;
+  --color-bg-pale:       #FAF5F7;
+  --color-bg-blush:      #EADFDB;
+  --color-bg-dark:       #2D1220;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-lg:   20px;
+  --radius-xl:   32px;
+  --radius-full: 9999px;
+
+  --shadow-sm:  0 1px 4px rgba(114, 46, 67, 0.08);
+  --shadow-md:  0 4px 24px rgba(114, 46, 67, 0.12);
+  --shadow-lg:  0 12px 48px rgba(114, 46, 67, 0.18);
+
+  --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+
+  --container-max: 1180px;
+  --container-pad: clamp(1.25rem, 5vw, 3rem);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+  background: var(--color-bg-white);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+}
