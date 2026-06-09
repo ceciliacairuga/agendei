@@ -33,6 +33,23 @@ $route->post("/products","Products:create");
 $route->get("/products-categories/list", "ProductsCategories:productsCategoryList");
 // Fim - Exercícios - Desafios
 
+/* ============== FAQS ================*/
+$route->get("/faqs-categories/list", "Faqs\FaqsCategories:faqsCategoryList");
+$route->get("/faqs-categories/list/{categoryId}", "Faqs\FaqsCategories:faqsCategoryListById");
+
+$route->get("/faqs/list", "Faqs\Faqs:faqsListAll");
+$route->get("/faqs/list/{faqId}", "Faqs\Faqs:faqsListById");
+
+$route->post("/faqs-categories/create", "Faqs\FaqsCategories:faqsCategoriesCreate");
+$route->post("/faqs/insert", "Faqs\Faqs:faqInsert");
+
+$route->put("/faqs/update/{faqId}", "Faqs\Faqs:faqUpdate");
+$route->put("/faqs-categories/update/{categoryId}", "Faqs\FaqsCategories:faqCategoryUpdate");
+
+$route->delete("/faqs/{faqId}", "Faqs\Faqs:faqDelete");
+$route->delete("/faqs-categories/{categoryId}", "Faqs\FaqsCategories:faqCategoryDelete");
+// --------------- Fim - Exercícios - Desafios ---------------
+
 $route->get("/hello", "Api:hello");
 $route->get("/users/list", "Users:usersList");
 
