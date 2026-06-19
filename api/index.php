@@ -25,13 +25,24 @@ $route = new Router(url("api"),":");
 
 $route->namespace("Source\Controller");
 
-// Início - Exercícios - Desafios
-$route->get("/products/list", "Products:productsList");
-$route->get("/products/list/{productId}","Products:productsListById");
-$route->post("/products","Products:create");
+$route->group("/users");
+$route->post("/register","Users:register"); // Registrar usuário comum
+$route->post("/login","Users:auth"); // login de usuário comum
+$route->put("/update","Users:update"); // update de usuário comum
+$route->post("/register-admin","Users:registerAdmin"); // Registrar usuário admin NÃO IMPLEMENTADO
+$route->post("/login-admin","Users:authAdmin"); // login de usuário admin
+$route->put("/update-admin","Users:updateAdmin"); // update de usuário admin
+$route->group(null);
 
-$route->get("/products-categories/list", "ProductsCategories:productsCategoryList");
-// Fim - Exercícios - Desafios
+/* ============== SERVICES ================*/
+$route->group("/services");
+$route->get("/services/list", "Services:servicesListAll");
+$route->get("/services/list/{serviceId}", "Services:servicesListById");
+$route->post("/services/insert", "Services:serviceInsert");
+$route->delete("/services/delete/{serviceId}", "Services:serviceDelete");
+
+/* ============== APPOINTMENTS ================*/
+
 
 /* ============== FAQS ================*/
 $route->get("/faqs-categories/list", "Faqs\FaqsCategories:faqsCategoryList");
@@ -49,6 +60,9 @@ $route->put("/faqs-categories/update/{categoryId}", "Faqs\FaqsCategories:faqCate
 $route->delete("/faqs/{faqId}", "Faqs\Faqs:faqDelete");
 $route->delete("/faqs-categories/{categoryId}", "Faqs\FaqsCategories:faqCategoryDelete");
 // --------------- Fim - Exercícios - Desafios ---------------
+
+
+
 
 $route->get("/hello", "Api:hello");
 $route->get("/users/list", "Users:usersList");
