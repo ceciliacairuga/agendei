@@ -51,14 +51,14 @@ class Services extends Api
         )->back($service);
     }
 
-    public function serviceInsert(array $data): void
+    public function servicesInsert(array $data): void
     {
         if(!$this->authToken(2)){
             $this->call(401, "unauthorized", "Acesso negado", "error")->back();
             return;
         }
 
-        $service = new Service(null, $this->userAuthId, $data['name'], $data['services_type_id'], $data['description'], $data['duration'], $data['price'], $data['employee_id'], $data['admin_id']);
+        $service = new Service(null, $data['services_type_id'], $data['name'],  $data['description'], $data['duration'], $data['price']);
 
         if (!$service->insert()) {
             $this->call(500, "internal_server_error", $service->getErrorMessage(), "error")->back();
@@ -68,7 +68,7 @@ class Services extends Api
         $this->call(201, "success", "Serviço inserido com sucesso", "created")->back();
     }
 
-    public function serviceDelete(array $data): void
+    public function servicesDelete(array $data): void
     {
         if (!filter_var($data['serviceId'], FILTER_VALIDATE_INT)) {
             $this->call(

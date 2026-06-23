@@ -3,6 +3,7 @@
 namespace Source\Controller;
 
 use Source\Models\User;
+var_dump("oi");
 
 class Users extends Api
 {

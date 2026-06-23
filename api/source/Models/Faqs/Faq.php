@@ -1,6 +1,6 @@
 <?php
 
-namespace source\Models\Faqs;
+namespace Source\Models\Faqs;
 
 use Source\Core\Connect;
 

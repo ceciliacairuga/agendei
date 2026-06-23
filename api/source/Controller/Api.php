@@ -1,6 +1,6 @@
 <?php
 
-namespace source\Controller;
+namespace Source\Controller;
 
 use Source\Models\User;
 use Source\Core\JWTToken;
@@ -67,6 +67,14 @@ class Api
         }
         echo json_encode($this->response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
         return $this;
+    }
+
+    public function hello(): void
+    {
+        $this->call(200, "success", "API ativa", "success")->back([
+            "message" => "hello",
+            "environment" => "agendei/api"
+        ]);
     }
 
 }

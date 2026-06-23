@@ -36,19 +36,26 @@ $route->group(null);
 
 /* ============== SERVICES ================*/
 $route->group("/services");
-$route->get("/services/list", "Services:servicesListAll");
-$route->get("/services/list/{serviceId}", "Services:servicesListById");
-$route->post("/services/insert", "Services:serviceInsert");
-$route->delete("/services/delete/{serviceId}", "Services:serviceDelete");
+$route->get("/list", "Services:servicesListAll");
+$route->get("/list/{serviceId}", "Services:servicesListById");
+$route->post("/insert", "Services:servicesInsert");
+$route->delete("/delete/{serviceId}", "Services:servicesDelete");
+$route->group(null);
+
 
 /* ============== APPOINTMENTS ================*/
-
+$route->group("/appointments");
+$route->get("/list", "Appointments:appointmentsListAll");
+$route->get("/list/{appointmentId}", "Appointments:appointmentsListById");
+$route->post("/insert", "Appointments:appointmentsInsert");
+$route->delete("/delete/{appointmentId}", "Appointments:appointmentsDelete");
+$route->group(null);
 
 /* ============== FAQS ================*/
 $route->get("/faqs-categories/list", "Faqs\FaqsCategories:faqsCategoryList");
 $route->get("/faqs-categories/list/{categoryId}", "Faqs\FaqsCategories:faqsCategoryListById");
 
-$route->get("/faqs/list", "Faqs\Faqs:faqsListAll");
+$route->get("/faqs/list", "Faqs:faqsListAll");
 $route->get("/faqs/list/{faqId}", "Faqs\Faqs:faqsListById");
 
 $route->post("/faqs-categories/create", "Faqs\FaqsCategories:faqsCategoriesCreate");

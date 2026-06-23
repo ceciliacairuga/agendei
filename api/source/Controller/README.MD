@@ -39,7 +39,7 @@ Controller/
 ```php
 <?php
 
-namespace source\Controller;
+namespace Source\Controller;
 
 use source\Models\User;
 
