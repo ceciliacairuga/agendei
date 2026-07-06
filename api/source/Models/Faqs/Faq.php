@@ -3,143 +3,57 @@
 namespace Source\Models\Faqs;
 
 use Source\Core\Connect;
+use Source\Core\Model;
 
-class Faq
+class Faq extends Model
 {
-    private ?int $id;
-    private ?int $categoryId;
-    private ?string $question;
-    private ?string $answer;
-    private ?int $active;
+    private ?int $id = null;
+    private ?int $faqsCategoryId = null;
+    private ?string $question = null;
+    private ?string $answer = null;
+    private ?int $active = null;
 
-    public function __construct(?int $id = null, ?int $categoryId = null, ?string $question = null, ?string $answer = null, ?int $active = null)
-    {
+    public function __construct(
+        ?int $id = null,
+        ?int $faqsCategoryId = null,
+        ?string $question = null,
+        ?string $answer = null,
+        ?int $active = 1
+    ) {
         $this->id = $id;
-        $this->categoryId = $categoryId;
+        $this->faqsCategoryId = $faqsCategoryId;
         $this->question = $question;
         $this->answer = $answer;
         $this->active = $active;
-    }
-    public function getId(): int
-    {
-        return $this->id;
-    }
-    public function getCategoryId(): int
-    {
-        return $this->categoryId;
-    }
-    public function getQuestion(): string
-    {
-        return $this->question;
-    }
-    public function getAnswer(): string
-    {
-        return $this->answer;
-    }
-    public function setId(int $id)
-    {
-        $this->id = $id;
-    }
-    public function setCategoryId(int $categoryId)
-    {
-        $this->categoryId = $categoryId;
-    }
-    public function setQuestion(string $question)
-    {
-        $this->question = $question;
-    }
-    public function setAnswer(string $answer)
-    {
-        $this->answer = $answer;
+
+        $this->table = 'faqs';
+        $this->primaryKey = 'id';
+        $this->fillable = ['faqsCategoryId', 'question', 'answer', 'active'];
     }
 
-    public function listAll(): array
+    public function getId(): ?int { return $this->id; }
+    public function setId(?int $id): void { $this->id = $id; }
+
+    public function getFaqsCategoryId(): ?int { return $this->faqsCategoryId; }
+    public function setFaqsCategoryId(?int $faqsCategoryId): void { $this->faqsCategoryId = $faqsCategoryId; }
+
+    public function getQuestion(): ?string { return $this->question; }
+    public function setQuestion(?string $question): void { $this->question = $question; }
+
+    public function getAnswer(): ?string { return $this->answer; }
+    public function setAnswer(?string $answer): void { $this->answer = $answer; }
+
+    public function getActive(): ?int { return $this->active; }
+    public function setActive(?int $active): void { $this->active = $active; }
+
+    /** Lista todos os FAQs com JOIN na categoria (mantém comportamento original) */
+    public function listAllWithCategory(): array
     {
-        $query = "SELECT f.id, f.question, f.answer, c.name as 'category_name'
-                  FROM faqs as f
-                  JOIN faqs_categories as c ON f.faqs_category_id = c.id
-                  WHERE f.active = 1
-                  GROUP BY c.name";
+        $query = "SELECT f.id, f.faqs_category_id, f.question, f.answer, c.name AS category_name
+                  FROM faqs AS f
+                  JOIN faqs_categories AS c ON f.faqs_category_id = c.id
+                  WHERE f.active = 1";
         $stmt = Connect::getInstance()->query($query);
         return $stmt->fetchAll();
-    }
-
-    public function listById(int $id): object|bool
-    {
-        $query = "SELECT * FROM faqs as f
-                  JOIN faqs_categories as c ON f.faqs_category_id = c.id
-                  WHERE f.active = 1
-                  AND f.id = :id";
-        $stmt = Connect::getInstance()->prepare($query);
-        $stmt->bindValue(':id', $id);
-        $stmt->execute();
-        if ($stmt->rowCount() > 0) {
-            return $stmt->fetch();
-        }
-        return false;
-    }
-
-    public function insert(): array|bool
-    {
-        $query = "INSERT INTO faqs (faqs_category_id, question, answer) VALUES ($this->categoryId, $this->question, $this->answer)";
-        $stmt = Connect::getInstance()->query($query);
-        if ($stmt->rowCount() > 0) {
-            $this->id = Connect::getInstance()->lastInsertId();
-            $query = "SELECT * FROM faqs as f
-                      JOIN faqs_categories as c ON f.faqs_category_id = c.id
-                      WHERE f.id = :id";
-            $stmt = Connect::getInstance()->prepare($query);
-            $stmt->bindParam(':id', $this->id);
-            $stmt->execute();
-            if ($stmt->rowCount() > 0) {
-                return $stmt->fetchAll();
-            }
-        }
-        return false;
-    }
-
-    public function update(array $data): array|bool
-    {
-        $query = "SELECT * FROM faqs WHERE id = :id";
-        $stmt = Connect::getInstance()->prepare($query);
-        $stmt->bindValue(':id', $data['faqId']);
-        $stmt->execute();
-        if ($stmt->rowCount() <= 0) {
-            return false;
-        }
-        $stmt->fetch();
-
-        $query = "UPDATE faqs SET faqs_category_id = :faq_cat_id, question = :question, answer = :answer WHERE id = :id";
-        $stmt = Connect::getInstance()->prepare($query);
-        $stmt->execute([
-            ":faq_cat_id" => $data['faqs_category_id'],
-            ":question" => $data['question'],
-            ":answer" => $data['answer'],
-            ":id" => $data['faqId']
-        ]);
-        if ($stmt->rowCount() > 0) {
-            $query = "SELECT * FROM faqs as f
-                      JOIN faqs_categories as c ON f.faqs_category_id = c.id
-                      WHERE f.id = :id";
-            $stmt = Connect::getInstance()->prepare($query);
-            $stmt->bindParam(':id', $data['faqId']);
-            $stmt->execute();
-            if ($stmt->rowCount() > 0) {
-                return $stmt->fetchAll();
-            }
-        }
-        return false;
-    }
-
-    public function delete(int $id): bool{
-        $query = "UPDATE faqs SET active = 0 WHERE id = :id AND active = 1";
-        $stmt = Connect::getInstance()->prepare($query);
-        $stmt->bindValue(':id', $id);
-        $stmt->execute();
-        if($stmt->rowCount() > 0){
-            $stmt->fetch();
-            return true;
-        }
-        return false;
     }
 }
