@@ -307,22 +307,16 @@
         <h2 class="section-title" id="faq-title">Perguntas Frequentes</h2>
         <p class="faq-subtitle">Não encontrou o que procura? <a href="#contato" class="faq-contact-link">Entre em contato</a></p>
       </header>
- 
-      <div class="faq-filter" id="faq-filter" role="tablist" aria-label="Filtrar por categoria">
-        <button class="faq-filter-btn faq-filter-btn--active" data-category="all" role="tab" aria-selected="true">Todas</button>
-      </div>
- 
-      <div class="faq-list" id="faq-list" aria-live="polite">
-        <div class="faq-loading" id="faq-loading" aria-label="Carregando perguntas frequentes">
-          <span class="faq-spinner" aria-hidden="true"></span>
-          <p>Carregando perguntas...</p>
-        </div>
-      </div>
- 
-      <div class="faq-error" id="faq-error" hidden>
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        <p>Não foi possível carregar as perguntas. <button class="faq-retry-btn" id="faq-retry">Tentar novamente</button></p>
-      </div>
+
+      <dl id="list-faqs" class="animate-on-scroll"></dl>
+
+      <footer class="faq-suggest">
+        <p class="faq-suggest-text">Tem uma dúvida que não está na lista?</p>
+        <a href="views/assets/public/nova-pergunta.html" class="btn btn-outline">
+          + Sugerir uma pergunta
+        </a>
+      </footer>
+      
     </section>
 
   </main>
@@ -367,10 +361,11 @@
       </nav>
     </section>
     <section class="footer-bottom">
-      <p>&copy; 2025 agendei! — Todos os direitos reservados.</p>
+      <p>&copy; 2026 agendei! — Todos os direitos reservados.</p>
     </section>
   </footer>
 
   <script src="views/assets/public/scripts/home.js"></script>
+  
 </body>
 </html>

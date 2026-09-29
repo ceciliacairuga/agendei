@@ -48,26 +48,21 @@ class Faqs extends Api
         $this->call(200, "success", "Lista paginada de FAQs.", "success")->back($result);
     }
 
-    // POST /faqs — Inserir FAQ (requer auth admin)
+    // POST /faqs — Inserir FAQ (público — qualquer visitante pode sugerir uma pergunta)
     public function insert(array $data): void
     {
-        if (!$this->authToken(1)) {
-            $this->call(401, "unauthorized", "Acesso negado.", "error")->back();
-            return;
-        }
-
         if (empty($data['faqs_category_id']) || empty($data['question']) || empty($data['answer'])) {
             $this->call(400, "bad_request", "Campos obrigatórios: faqs_category_id, question, answer.", "error")->back();
             return;
         }
-
+ 
         $faq = new Faq(null, (int)$data['faqs_category_id'], $data['question'], $data['answer']);
-
+ 
         if (!$faq->insert()) {
             $this->call(500, "internal_server_error", $faq->getErrorMessage(), "error")->back();
             return;
         }
-
+ 
         $this->call(201, "created", "FAQ criado com sucesso.", "success")->back([
             "id"             => $faq->getId(),
             "faqsCategoryId" => $faq->getFaqsCategoryId(),

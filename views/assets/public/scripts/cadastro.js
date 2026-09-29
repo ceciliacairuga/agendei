@@ -1,7 +1,10 @@
 /* views/assets/public/scripts/cadastro.js */
+import Users from "../../_common/classes/Users.js";
 
 (function () {
   "use strict";
+
+  const usersApi = new Users();
 
   /* ── Helpers ── */
   function showError(el, msg) {
@@ -146,18 +149,38 @@
     submitBtn.disabled    = true;
     submitBtn.textContent = "Criando conta...";
 
-    /*
-     * Integração futura: usar HttpClientBase.js para POST na API.
-     * Por ora, simula resposta estática.
-     */
-    setTimeout(function () {
-      submitBtn.disabled    = false;
-      submitBtn.textContent = "Criar minha conta grátis";
-      if (successMsg) successMsg.hidden = false;
-      setTimeout(function () {
-        window.location.href = "../../views/app/dashboard.html";
-      }, 1500);
-    }, 1200);
+    const fullName = (firstNameInput.value.trim() + " " + lastNameInput.value.trim()).trim();
+
+    /* Nunca mantenha a senha em variáveis além do necessário para o envio;
+       nunca logue ou reexiba o valor. */
+    const payload = {
+      name: fullName,
+      email: emailInput.value.trim(),
+      password: passwordInput.value,
+    };
+
+    usersApi.register(payload)
+      .then(function (result) {
+        if (!result || result.type !== "success") {
+          const message = (result && result.message) || "Não foi possível criar sua conta.";
+          throw new Error(message);
+        }
+
+        if (successMsg) successMsg.hidden = false;
+
+        setTimeout(function () {
+          /* O cadastro não autentica automaticamente; o fluxo exige um
+             login explícito em seguida (Cadastro → resposta da API → Login). */
+          window.location.href = "/agendei/views/assets/public/login.html";
+        }, 1500);
+      })
+      .catch(function (err) {
+        showError(globalError, err.message || "Serviço indisponível no momento. Tente novamente em instantes.");
+      })
+      .finally(function () {
+        submitBtn.disabled    = false;
+        submitBtn.textContent = "Criar minha conta grátis";
+      });
   });
 
 })();

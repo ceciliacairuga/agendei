@@ -1,7 +1,12 @@
 /* views/assets/public/scripts/login-admin.js
- * Login administrativo — validação visual e redirecionamento para o painel.
- * Frontend estático: nenhuma regra de negócio real; apenas comportamento de UI.
+ * Login administrativo — integra com POST /users/login-admin.
+ * Usa um escopo de sessão próprio ("admin"), separado da sessão do cliente.
  */
+import Users from "../../_common/classes/Users.js";
+import SessionStorage from "../../_common/scripts/storage.js";
+
+const usersApi = new Users();
+const storage  = new SessionStorage("admin");
 
 const adminForm = document.querySelector("#admin-login-form");
 const adminEmail = document.querySelector("#admin-email");
@@ -24,6 +29,10 @@ function clearError(field, errorEl) {
   errorEl.hidden = true;
 }
 
+function validEmail(v) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+}
+
 adminEmail.addEventListener("input", () => clearError(adminEmail, adminEmailError));
 adminPassword.addEventListener("input", () => clearError(adminPassword, adminPasswordError));
 
@@ -33,25 +42,51 @@ adminTogglePw.addEventListener("click", () => {
   adminTogglePw.setAttribute("aria-label", isPassword ? "Ocultar senha" : "Mostrar senha");
 });
 
-/*adminSubmit.addEventListener("click", () => {
+/* Já autenticado como admin? Vai direto para o painel. */
+if (storage.isAuthenticated()) {
+  window.location.href = "/agendei/painel.html";
+}
+
+adminForm.addEventListener("submit", (evt) => {
+  evt.preventDefault();
   adminGlobalError.hidden = true;
   let valid = true;
 
-  if (!adminEmail.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(adminEmail.value)) {
+  if (!adminEmail.value.trim() || !validEmail(adminEmail.value.trim())) {
     showError(adminEmail, adminEmailError, "Informe um e-mail administrativo válido.");
     valid = false;
   }
-  if (!adminPassword.value || adminPassword.value.length < 6) {
-    showError(adminPassword, adminPasswordError, "A senha precisa ter ao menos 6 caracteres.");
+  if (!adminPassword.value) {
+    showError(adminPassword, adminPasswordError, "Informe sua senha.");
     valid = false;
   }
 
   if (!valid) return;
 
-  // Frontend estático: redireciona para o painel administrativo.
-  window.location.href = "../../../painel.html";
-}); */
+  adminSubmit.disabled = true;
+  adminSubmit.textContent = "Entrando...";
 
-adminSubmit.addEventListener("click", () => {
-  window.location.href = "file:///C:/wamp64/www/agendei/painel.html";
+  usersApi.loginAdminFromForm(adminForm)
+    .then((result) => {
+      if (!result || result.type !== "success") {
+        const message = (result && result.message) || "Credenciais administrativas inválidas.";
+        throw new Error(message);
+      }
+
+      const token = result.data && result.data.token;
+      if (!token) {
+        throw new Error("O servidor não retornou uma sessão válida.");
+      }
+
+      storage.saveSession(token, result.data);
+      window.location.href = "/agendei/painel.html";
+    })
+    .catch((err) => {
+      adminGlobalError.textContent = err.message || "Serviço indisponível no momento. Tente novamente em instantes.";
+      adminGlobalError.hidden = false;
+    })
+    .finally(() => {
+      adminSubmit.disabled = false;
+      adminSubmit.textContent = "Acessar painel administrativo";
+    });
 });

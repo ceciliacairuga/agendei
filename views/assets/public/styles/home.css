@@ -1118,7 +1118,25 @@
   text-underline-offset: 2px;
 }
 
+/* Sugerir pergunta */
+.faq-suggest {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1.5px solid var(--color-brand-pale);
+  text-align: center;
+}
+.faq-suggest-text {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+}
+
 @media (max-width: 640px) {
   .faq-question { font-size: 0.9rem; padding: 1rem; }
   .faq-item.open .faq-answer { padding: 0 1rem 1rem; }
+  .faq-suggest { flex-direction: column; }
 }

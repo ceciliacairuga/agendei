@@ -138,9 +138,10 @@ class FaqsCategories extends Api
         $this->call(200, "success", "Categoria removida com sucesso.", "success")->back();
     }
 
-    // ── Aliases para rotas legadas ────────────────────────────────────────────
+    // Aliases para rotas legadas
 
-    public function faqsCategoryList(): void              { $this->listAll(); }
+    public function faqsCategoryList(): void { 
+        $this->listAll(); }
     public function faqsCategoryListById(array $d): void  { $d['category_id'] = $d['categoryId'] ?? null; $this->listById($d); }
     public function faqsCategoriesCreate(array $d): void  { $this->insert($d); }
     public function faqCategoryUpdate(array $d): void     { $d['category_id'] = $d['categoryId'] ?? null; $this->update($d); }
