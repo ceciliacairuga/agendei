@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Criar conta — agendei!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/_common/styles/variables.css" />
+  <link rel="stylesheet" href="../../assets/public/styles/auth.css" />
+  <link rel="stylesheet" href="../../assets/public/styles/cadastro.css" />
+</head>
+<body class="auth-page cadastro-page">
+
+  <main class="auth-main auth-main--register">
+
+    <section class="auth-visual" aria-hidden="true">
+      <figure class="auth-visual-bg"></figure>
+      <article class="auth-brand-block">
+        <a href="/agendei/index.html" class="auth-logo-link">
+          <p class="auth-logo">agendei<span class="logo-accent">!</span></p>
+        </a>
+        <h2 class="auth-visual-title">Comece hoje.<br /><em>Cuide-se sempre.</em></h2>
+        <p class="auth-visual-sub">Crie sua conta gratuitamente e agende seu primeiro horário em menos de 2 minutos.</p>
+        <ul class="auth-perks" role="list">
+          <li class="perk-item">
+            <figure class="perk-icon" aria-hidden="true">✓</figure>
+            Agendamento 100% online, sem filas
+          </li>
+          <li class="perk-item">
+            <figure class="perk-icon" aria-hidden="true">✓</figure>
+            Lembretes automáticos por e-mail
+          </li>
+          <li class="perk-item">
+            <figure class="perk-icon" aria-hidden="true">✓</figure>
+            Histórico completo de atendimentos
+          </li>
+        </ul>
+      </article>
+      <figure class="auth-deco-ring r1"></figure>
+      <figure class="auth-deco-ring r2"></figure>
+      <span class="auth-deco-star" aria-hidden="true">✦</span>
+    </section>
+
+    <section class="auth-form-area">
+      <header class="auth-form-header">
+        <a href="/agendei/index.html" class="back-link" aria-label="Voltar para a página inicial">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+          Voltar ao início
+        </a>
+        <p class="auth-step">Crie sua conta grátis</p>
+        <h1 class="auth-title">Bem-vindo ao agendei!</h1>
+        <p class="auth-subtitle">Já tem conta? <a href="login.html" class="auth-link">Entrar agora</a></p>
+      </header>
+
+      <form class="auth-form register-form" id="register-form" novalidate>
+
+        <section class="form-row">
+          <fieldset class="form-group">
+            <label class="form-label" for="first-name">Nome</label>
+            <input class="form-input" type="text" id="first-name" name="first_name"
+              placeholder="Seu nome" autocomplete="given-name" required />
+            <p class="form-error" id="first-name-error" aria-live="polite" hidden></p>
+          </fieldset>
+          <fieldset class="form-group">
+            <label class="form-label" for="last-name">Sobrenome</label>
+            <input class="form-input" type="text" id="last-name" name="last_name"
+              placeholder="Sobrenome" autocomplete="family-name" required />
+            <p class="form-error" id="last-name-error" aria-live="polite" hidden></p>
+          </fieldset>
+        </section>
+
+        <fieldset class="form-group">
+          <label class="form-label" for="email">E-mail</label>
+          <input class="form-input" type="email" id="email" name="email"
+            placeholder="seu@email.com" autocomplete="email" required />
+          <p class="form-error" id="email-error" aria-live="polite" hidden></p>
+        </fieldset>
+
+        <fieldset class="form-group">
+          <label class="form-label" for="password">Senha</label>
+          <section class="input-wrapper">
+            <input class="form-input" type="password" id="password" name="password"
+              placeholder="Mínimo 8 caracteres" autocomplete="new-password" required />
+            <button type="button" class="toggle-password" id="toggle-password"
+              aria-label="Mostrar senha" aria-controls="password">
+              <svg class="icon-eye" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg class="icon-eye-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" hidden><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            </button>
+          </section>
+          <section class="password-strength" id="password-strength" aria-live="polite">
+            <ul class="strength-bars" role="list" aria-hidden="true">
+              <li class="strength-bar" id="bar-1"></li>
+              <li class="strength-bar" id="bar-2"></li>
+              <li class="strength-bar" id="bar-3"></li>
+              <li class="strength-bar" id="bar-4"></li>
+            </ul>
+            <span class="strength-label" id="strength-label"></span>
+          </section>
+          <p class="form-error" id="password-error" aria-live="polite" hidden></p>
+        </fieldset>
+
+        <fieldset class="form-group">
+          <label class="form-label" for="password-confirm">Confirmar senha</label>
+          <section class="input-wrapper">
+            <input class="form-input" type="password" id="password-confirm" name="password_confirm"
+              placeholder="Repita sua senha" autocomplete="new-password" required />
+            <button type="button" class="toggle-password" id="toggle-confirm"
+              aria-label="Mostrar confirmação" aria-controls="password-confirm">
+              <svg class="icon-eye" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg class="icon-eye-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" hidden><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            </button>
+          </section>
+          <p class="form-error" id="confirm-error" aria-live="polite" hidden></p>
+        </fieldset>
+
+        <fieldset class="form-group form-group--checkbox">
+          <label class="checkbox-label" for="terms">
+            <input type="checkbox" id="terms" name="terms" required />
+            <span class="checkbox-custom" aria-hidden="true"></span>
+            Concordo com os <a href="#" class="auth-link">Termos de uso</a> e a <a href="#" class="auth-link">Política de privacidade</a>
+          </label>
+          <p class="form-error" id="terms-error" aria-live="polite" hidden></p>
+        </fieldset>
+
+        <p class="form-feedback form-success" id="form-success" aria-live="polite" hidden>
+          Conta criada com sucesso! Redirecionando para o painel...
+        </p>
+        <p class="form-feedback form-error-global" id="form-error-global" aria-live="polite" hidden></p>
+
+        <button type="submit" class="btn-submit" id="submit-btn">
+          Criar minha conta grátis
+        </button>
+
+      </form>
+    </section>
+
+  </main>
+
+  <script type="module" src="../../assets/public/scripts/cadastro.js"></script>
+</body>
+</html>

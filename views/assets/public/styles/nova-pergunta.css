@@ -1,0 +1,19 @@
+/* views/assets/public/styles/nova-pergunta.css
+ * Ajustes específicos da página "Sugerir uma pergunta".
+ */
+
+select.form-input {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B3D4E' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+textarea.form-input {
+  resize: vertical;
+  min-height: 96px;
+  line-height: 1.5;
+}

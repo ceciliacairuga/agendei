@@ -1,0 +1,134 @@
+<?php
+
+namespace Source\Models;
+
+use PDO;
+use Source\Core\Model;
+use Source\Core\Connect;
+use Source\Core\JWTToken;
+
+class User extends Model
+{
+    private ?int $id = null;
+    private ?int $typeId = null;
+    private ?string $name = null;
+    private ?string $email = null;
+    private ?string $password = null;
+    private ?string $photo = null;
+    private ?int $active = null;
+    private ?string $token = null;
+
+    public function __construct(
+        ?int $id = null,
+        ?int $typeId = null,
+        ?string $name = null,
+        ?string $email = null,
+        ?string $password = null,
+        ?string $photo = null,
+        ?int $active = 1
+    ) {
+        $this->id = $id;
+        $this->typeId = $typeId;
+        $this->name = $name;
+        $this->email = $email;
+        $this->password = $password;
+        $this->photo = $photo;
+        $this->active = $active;
+
+        $this->table = 'users';
+        $this->primaryKey = 'id';
+        $this->fillable = ['typeId', 'name', 'email', 'password', 'photo', 'active'];
+    }
+
+    public function getId(): ?int { return $this->id; }
+    public function setId(?int $id): void { $this->id = $id; }
+
+    public function getTypeId(): ?int { return $this->typeId; }
+    public function setTypeId(?int $typeId): void { $this->typeId = $typeId; }
+
+    public function getName(): ?string { return $this->name; }
+    public function setName(?string $name): void { $this->name = $name; }
+
+    public function getEmail(): ?string { return $this->email; }
+    public function setEmail(?string $email): void { $this->email = $email; }
+
+    public function getPassword(): ?string { return $this->password; }
+    public function setPassword(?string $password): void { $this->password = $password; }
+
+    public function getPhoto(): ?string { return $this->photo; }
+    public function setPhoto(?string $photo): void { $this->photo = $photo; }
+
+    public function getActive(): ?int { return $this->active; }
+    public function setActive(?int $active): void { $this->active = $active; }
+
+    public function getToken(): ?string { return $this->token; }
+
+    public function insert(): bool
+    {
+        $query = "SELECT id FROM {$this->table} WHERE email = :email";
+        $stmt = Connect::getInstance()->prepare($query);
+        $stmt->bindParam(":email", $this->email);
+        $stmt->execute();
+        if ($stmt->rowCount() > 0) {
+            $this->errorMessage = "E-mail já cadastrado.";
+            return false;
+        }
+
+        $this->password = password_hash($this->password, PASSWORD_DEFAULT);
+
+        if (!parent::insert()) {
+            $this->errorMessage = "Erro ao cadastrar usuário.";
+            return false;
+        }
+        return true;
+    }
+
+    public function login(string $email, string $password, int $typeId = 2): bool
+    {
+        $query = "SELECT * FROM {$this->table} WHERE email = :email AND " . ($typeId === 2 ? "type_id IN (2, 3)" : "type_id = :typeId") . " AND active = 1";
+        $stmt = Connect::getInstance()->prepare($query);
+        $stmt->bindParam(":email", $email);
+        if ($typeId !== 2) {
+            $stmt->bindParam(":typeId", $typeId);
+        }
+        $stmt->execute();
+
+        if ($stmt->rowCount() === 0) {
+            $this->errorMessage = "E-mail não cadastrado ou sem permissão.";
+            return false;
+        }
+
+        $user = $stmt->fetch();
+        if (!password_verify($password, $user->password)) {
+            $this->errorMessage = "Senha incorreta.";
+            return false;
+        }
+
+        $this->id = $user->id;
+        $this->typeId = $user->type_id;
+        $this->name = $user->name;
+        $this->email = $user->email;
+        $this->photo = $user->photo;
+
+        $jwt = new JWTToken();
+        $this->token = $jwt->encode([
+            "id"    => $user->id,
+            "name"  => $user->name,
+            "email" => $user->email,
+            "typeId"=> $user->type_id,
+        ]);
+        return true;
+    }
+
+    public function permissionVerify(string $email, int $typeId): bool
+    {
+        $query = "SELECT id FROM {$this->table} WHERE email = :email AND " . ($typeId === 2 ? "type_id IN (2, 3)" : "type_id = :typeId") . " AND active = 1";
+        $stmt = Connect::getInstance()->prepare($query);
+        $stmt->bindParam(":email", $email);
+        if ($typeId !== 2) {
+            $stmt->bindParam(":typeId", $typeId);
+        }
+        $stmt->execute();
+        return $stmt->rowCount() > 0;
+    }
+}

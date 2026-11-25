@@ -1,0 +1,30 @@
+AGENDEI — ATUALIZAÇÃO DE USUÁRIOS, DASHBOARD E AGENDAMENTOS
+
+O QUE ESTA ATUALIZAÇÃO PREPARA
+- Cadastro de clientes e funcionários pelo administrador, com gravação no MySQL.
+- Listagem administrativa consultando os usuários reais.
+- Edição e desativação de clientes/funcionários. A desativação é lógica para preservar o histórico de agendamentos.
+- Dashboard administrativo com contagens reais e lista de agendamentos do dia.
+- Painel do cliente consultando /users/me e os agendamentos associados à conta autenticada.
+- Criação de agendamento vinculada ao cliente conectado.
+- Seleção opcional de funcionário para direcionar o agendamento.
+- Listagem de agendamentos do cliente ou do funcionário autenticado.
+
+INSTALAÇÃO
+1. Faça uma cópia de segurança da pasta atual C:\wamp64\www\agendei.
+2. Extraia o conteúdo deste ZIP diretamente dentro de C:\wamp64\www\agendei, mantendo as pastas api e views. Não crie uma pasta extra.
+3. No phpMyAdmin, selecione o banco agendei e importe o arquivo atualizacao_agendei_funcionalidades.sql.
+   Esse SQL adiciona a coluna employee_id à tabela appointments e cria um índice. Ele não apaga nem recria agendamentos.
+4. Não importe novamente o dump completo do banco.
+5. Reinicie/atualize o WAMP se necessário e abra o sistema pelo endereço http://localhost/agendei/.
+6. Entre novamente no painel administrativo e no painel de cliente para renovar as sessões.
+
+IMPORTANTE
+- Os endpoints administrativos exigem o token de administrador já usado pelo login atual.
+- O cadastro feito pelo administrador aceita Cliente e Funcionário. A conta de administrador não é criada por essa tela.
+- A exclusão de usuário é feita como desativação (active = 0), para não perder o histórico associado.
+- O cliente pode escolher um funcionário ou deixar "Qualquer profissional disponível". Nesse caso employee_id fica NULL e o salão pode atribuir depois.
+- A disponibilidade ainda depende dos horários cadastrados no formulário; esta atualização valida data futura, serviço ativo e conflito exato de horário para o funcionário escolhido.
+
+VALIDAÇÃO REAL
+Os arquivos foram verificados quanto à sintaxe PHP e JavaScript. A integração com o MySQL e o comportamento no navegador precisam ser confirmados no WAMP, porque não tenho acesso à instância local do banco da sua máquina.

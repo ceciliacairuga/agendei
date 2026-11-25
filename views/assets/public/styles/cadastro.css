@@ -1,0 +1,171 @@
+/* views/assets/public/styles/cadastro.css */
+
+/* Layout mais alto para o formulário de cadastro */
+.auth-main--register {
+  grid-template-columns: 1fr 1.1fr;
+}
+
+/* Perks list no lado visual */
+.auth-perks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.perk-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.8);
+}
+
+.perk-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.auth-logo-link {
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+/* Campos em linha */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+/* Indicador de força da senha */
+.password-strength {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.strength-bars {
+  display: flex;
+  gap: 4px;
+}
+
+.strength-bar {
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--color-brand-pale);
+  transition: background var(--transition);
+}
+
+.strength-bar.active-1 { background: #dc2626; }
+.strength-bar.active-2 { background: #f97316; }
+.strength-bar.active-3 { background: #eab308; }
+.strength-bar.active-4 { background: #16a34a; }
+
+.strength-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+/* Checkbox customizado */
+.form-group--checkbox {
+  margin-top: 0.25rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+.checkbox-label input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkbox-custom {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--color-brand-pale);
+  border-radius: 4px;
+  background: var(--color-bg-pale);
+  flex-shrink: 0;
+  margin-top: 1px;
+  transition: all var(--transition);
+  position: relative;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkbox-custom {
+  background: var(--color-brand-deep);
+  border-color: var(--color-brand-deep);
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkbox-custom::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 6px;
+  height: 10px;
+  border: 2px solid #fff;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+.checkbox-label input[type="checkbox"]:focus + .checkbox-custom {
+  box-shadow: 0 0 0 3px rgba(114, 46, 67, 0.15);
+}
+
+/* Botão de submit */
+.btn-submit {
+  width: 100%;
+  padding: 0.9rem;
+  background: var(--color-brand-deep);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(114, 46, 67, 0.35);
+  transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+  margin-top: 0.25rem;
+}
+.btn-submit:hover {
+  background: #5c2336;
+  box-shadow: 0 4px 20px rgba(114, 46, 67, 0.45);
+}
+.btn-submit:active { transform: scale(0.98); }
+.btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .auth-main--register { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+}

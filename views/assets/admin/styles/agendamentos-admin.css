@@ -1,0 +1,15 @@
+/* Tela admin de agendamentos (reaproveita usuarios.css para tabela/painel) */
+.appt-filters { display: flex; flex-wrap: wrap; gap: .85rem; align-items: flex-end; margin-bottom: 1rem; }
+.appt-filter { display: flex; flex-direction: column; gap: .3rem; font-size: .78rem; font-weight: 600; color: var(--color-text-muted); }
+.appt-filter--grow { flex: 1 1 220px; }
+.appt-filter input, .appt-filter select, .status-select {
+  font: inherit; font-size: .9rem; padding: .55rem .75rem; border-radius: 10px;
+  border: 1px solid var(--color-brand-pale); background: var(--color-bg-white); color: var(--color-text);
+}
+.status-select { padding: .35rem .5rem; font-size: .8rem; }
+.status-select:disabled { opacity: .6; cursor: wait; }
+.appt-cell-sub { display: block; font-size: .75rem; color: var(--color-text-muted); }
+.appt-admin-feedback { margin: 0 0 1rem; padding: .7rem 1rem; border-radius: 10px; font-size: .9rem; font-weight: 600; }
+.appt-admin-feedback--success { background: #e8f7ee; color: #1d6b3a; }
+.appt-admin-feedback--error { background: #fdecec; color: #a12626; }
+.appt-row-actions { display: flex; gap: .4rem; align-items: center; justify-content: flex-end; flex-wrap: wrap; }

@@ -1,0 +1,7 @@
+/.idea
+/api/.env
+/storage/uploads/users/*
+/storage/uploads/services/*
+!/storage/uploads/users/.gitkeep
+!/storage/uploads/services/.gitkeep
+composer.lock

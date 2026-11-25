@@ -1,0 +1,18 @@
+# Pasta de arquivos enviados pelos usuários.
+# 1) Nunca executar scripts enviados (defesa em profundidade).
+# 2) Não listar o conteúdo da pasta.
+# 3) Servir somente imagens.
+Options -Indexes -ExecCGI
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php7.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php8.c>
+    php_flag engine off
+</IfModule>
+RemoveHandler .php .phtml .php3 .php4 .php5 .phar
+<FilesMatch "^(?!.*\.(jpe?g|png|webp)$).*$">
+    Require all denied
+</FilesMatch>

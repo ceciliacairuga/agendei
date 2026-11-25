@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo de Serviços — agendei!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="views/assets/_common/styles/variables.css" />
+  <link rel="stylesheet" href="views/assets/_common/styles/catalogo.css" />
+</head>
+<body class="catalogo-body">
+
+  <!-- Detecta de onde veio: app ou admin -->
+  <header class="cat-header" id="cat-header">
+    <nav class="cat-nav" aria-label="Navegação">
+      <a href="#" class="cat-logo" id="cat-back-link" aria-label="Voltar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        <span class="cat-logo-text">agendei<span class="logo-accent">!</span></span>
+      </a>
+      <p class="cat-context-badge" id="cat-context-badge">Catálogo</p>
+    </nav>
+  </header>
+
+  <main class="cat-main" id="main-content">
+
+    <header class="cat-page-header">
+      <section class="cat-page-titles">
+        <p class="cat-eyebrow">Nossos serviços</p>
+        <h1 class="cat-title">Catálogo de Serviços</h1>
+        <p class="cat-subtitle">Conheça todos os serviços disponíveis no salão</p>
+      </section>
+
+      <!-- Barra de busca -->
+      <section class="cat-search-bar" aria-label="Busca">
+        <label class="sr-only" for="cat-search">Buscar serviço</label>
+        <section class="cat-search-wrapper">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input class="cat-search-input" type="search" id="cat-search" placeholder="Buscar por nome ou categoria..." />
+        </section>
+      </section>
+    </header>
+
+    <!-- Filtros preenchidos a partir das categorias cadastradas no banco -->
+    <section class="cat-filters" aria-label="Filtrar por categoria">
+      <ul class="cat-filter-list" role="list" id="cat-filter-list">
+        <li><button type="button" class="cat-filter-btn cat-filter-btn--active" data-cat="todos" aria-pressed="true">Todos</button></li>
+      </ul>
+    </section>
+
+    <p id="cat-feedback" class="cat-subtitle" role="status" aria-live="polite">Carregando serviços...</p>
+    <section class="cat-grid" id="cat-grid" aria-label="Serviços disponíveis"></section>
+
+    <!-- Estado vazio -->
+    <article class="cat-empty" id="cat-empty" hidden aria-live="polite">
+      <figure class="cat-empty-icon" aria-hidden="true">🔍</figure>
+      <h3 class="cat-empty-title">Nenhum serviço encontrado</h3>
+      <p class="cat-empty-desc">Tente buscar por outro nome ou categoria.</p>
+    </article>
+
+  </main>
+
+  <script type="module" src="views/assets/_common/scripts/catalogo.js"></script>
+</body>
+</html>

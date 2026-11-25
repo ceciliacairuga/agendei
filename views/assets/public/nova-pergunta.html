@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sugerir uma pergunta — agendei!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/_common/styles/reset.css" />
+  <link rel="stylesheet" href="../../assets/_common/styles/variables.css" />
+  <link rel="stylesheet" href="../../assets/public/styles/auth.css" />
+  <link rel="stylesheet" href="../../assets/public/styles/nova-pergunta.css" />
+</head>
+<body class="auth-page">
+
+  <main class="auth-main">
+    <section class="auth-visual" aria-hidden="true">
+      <figure class="auth-visual-bg"></figure>
+      <article class="auth-brand-block">
+        <a href="../../index.html" class="auth-logo-link">
+          <p class="auth-logo">agendei<span class="logo-accent">!</span></p>
+        </a>
+        <h2 class="auth-visual-title">Sua dúvida pode<br /><em>ajudar outras pessoas.</em></h2>
+        <p class="auth-visual-sub">Envie a pergunta que você gostaria de ver respondida. Assim que for cadastrada, ela aparece direto na seção de Perguntas Frequentes da página inicial.</p>
+      </article>
+      <figure class="auth-deco-ring r1"></figure>
+      <figure class="auth-deco-ring r2"></figure>
+      <span class="auth-deco-star" aria-hidden="true">✦</span>
+    </section>
+
+    <section class="auth-form-area">
+      <header class="auth-form-header">
+        <a href="../../index.html#faq" class="back-link" aria-label="Voltar para a página inicial">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+          Voltar às FAQs
+        </a>
+        <p class="auth-step">Perguntas frequentes</p>
+        <h1 class="auth-title">Sugerir uma pergunta</h1>
+        <p class="auth-subtitle">Preencha os campos abaixo com sua dúvida e a resposta sugerida.</p>
+      </header>
+
+      <form class="auth-form" id="faq-form" novalidate>
+
+        <fieldset class="form-group">
+          <label class="form-label" for="faq-category">Categoria</label>
+          <select class="form-input" id="faq-category" name="faqs_category_id" required>
+            <option value="" disabled selected>Selecione uma categoria</option>
+          </select>
+          <p class="form-error" id="faq-category-error" aria-live="polite" hidden></p>
+        </fieldset>
+
+        <fieldset class="form-group">
+          <label class="form-label" for="faq-question">Pergunta</label>
+          <input
+            class="form-input"
+            type="text"
+            id="faq-question"
+            name="question"
+            placeholder="Ex.: Como faço para remarcar um horário?"
+            maxlength="255"
+            required
+          />
+          <p class="form-error" id="faq-question-error" aria-live="polite" hidden></p>
+        </fieldset>
+
+        <fieldset class="form-group">
+          <label class="form-label" for="faq-answer">Resposta sugerida</label>
+          <textarea
+            class="form-input"
+            id="faq-answer"
+            name="answer"
+            rows="4"
+            placeholder="Escreva a resposta para essa pergunta..."
+            required
+          ></textarea>
+          <p class="form-error" id="faq-answer-error" aria-live="polite" hidden></p>
+        </fieldset>
+
+        <p class="form-feedback form-success" id="form-success" aria-live="polite" hidden>
+          Pergunta enviada com sucesso! Ela já aparece na página inicial.
+        </p>
+        <p class="form-feedback form-error-global" id="form-error-global" aria-live="polite" hidden></p>
+
+        <button type="submit" class="btn btn-primary btn-large btn-full" id="faq-submit-btn">
+          Enviar pergunta
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <script src="scripts/nova-pergunta.js"></script>
+</body>
+</html>

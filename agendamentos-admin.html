@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestão de Agendamentos — agendei!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="views/assets/_common/styles/variables.css" />
+  <link rel="stylesheet" href="views/assets/admin/styles/admin-layout.css" />
+  <link rel="stylesheet" href="views/assets/admin/styles/usuarios.css" />
+  <link rel="stylesheet" href="views/assets/admin/styles/agendamentos-admin.css" />
+</head>
+<body class="admin-body">
+
+  <aside class="sidebar" id="sidebar" aria-label="Menu administrativo">
+    <header class="sidebar-header">
+      <p class="sidebar-logo">
+        agendei<span class="logo-accent">!</span>
+        <span class="admin-role-badge">Admin</span>
+      </p>
+      <button class="sidebar-close" id="sidebar-close" aria-label="Fechar menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </header>
+
+    <nav class="sidebar-nav" aria-label="Navegação administrativa">
+      <ul role="list">
+        <li><a href="painel.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          Painel
+        </a></li>
+        <li><a href="usuarios.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Usuários
+        </a></li>
+        <li><a href="novoservico-admin.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          Serviços
+        </a></li>
+        <li><a href="agendamentos-admin.html" class="nav-item nav-item--active" aria-current="page">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Agendamentos
+        </a></li>
+      </ul>
+    </nav>
+
+    <footer class="sidebar-footer">
+      <article class="user-chip">
+        <figure class="user-avatar" aria-hidden="true">AD</figure>
+        <section>
+          <p class="user-name-text" id="admin-name">Administrador</p>
+          <p class="user-role-text" id="admin-email">Conta administrativa</p>
+        </section>
+      </article>
+      <a href="/agendei/views/assets/public/login-admin.html" class="logout-btn" aria-label="Sair do sistema">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      </a>
+    </footer>
+  </aside>
+
+  <figure class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></figure>
+
+  <section class="admin-content">
+
+    <header class="topbar">
+      <button class="topbar-hamburger" id="sidebar-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="sidebar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <nav class="breadcrumb" aria-label="Caminho de navegação">
+        <ol role="list">
+          <li><a href="painel.html">Administração</a></li>
+          <li aria-current="page">Agendamentos</li>
+        </ol>
+      </nav>
+    </header>
+
+    <main class="admin-main" id="main-content">
+
+      <header class="page-header users-page-header">
+        <section>
+          <h1 class="page-title">Gestão de Agendamentos</h1>
+          <p class="page-subtitle">Acompanhe, filtre e atualize todos os agendamentos do salão.</p>
+        </section>
+      </header>
+
+      <section class="appt-filters" aria-label="Filtros de agendamentos">
+        <label class="appt-filter">
+          <span>Data</span>
+          <input type="date" id="f-date" />
+        </label>
+        <label class="appt-filter appt-filter--grow">
+          <span>Cliente</span>
+          <input type="search" id="f-client" placeholder="Nome ou e-mail do cliente..." />
+        </label>
+        <label class="appt-filter">
+          <span>Serviço</span>
+          <select id="f-service"><option value="">Todos</option></select>
+        </label>
+        <label class="appt-filter">
+          <span>Status</span>
+          <select id="f-status">
+            <option value="">Todos</option>
+            <option value="pending">Pendente</option>
+            <option value="confirmed">Confirmado</option>
+            <option value="completed">Concluído</option>
+            <option value="cancelled">Cancelado</option>
+          </select>
+        </label>
+        <button type="button" class="btn btn-outline" id="f-clear">Limpar filtros</button>
+      </section>
+
+      <p class="appt-admin-feedback" id="appt-admin-feedback" role="status" aria-live="polite" hidden></p>
+
+      <article class="panel users-panel" aria-labelledby="appt-table-title">
+        <header class="panel-header">
+          <h2 class="panel-title" id="appt-table-title">Agendamentos</h2>
+          <p class="users-count" id="appt-count">0 agendamentos</p>
+        </header>
+        <section class="users-table-wrapper">
+          <table class="users-table" aria-describedby="appt-table-title">
+            <thead>
+              <tr>
+                <th scope="col">Data e horário</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Serviço</th>
+                <th scope="col">Profissional</th>
+                <th scope="col">Status</th>
+                <th scope="col" class="col-actions">Ações</th>
+              </tr>
+            </thead>
+            <tbody id="appt-tbody"></tbody>
+          </table>
+          <section class="users-empty" id="appt-empty" hidden>
+            <p>Nenhum agendamento encontrado.</p>
+          </section>
+        </section>
+      </article>
+    </main>
+  </section>
+
+  <script type="module" src="views/assets/admin/scripts/admin-guard.js"></script>
+  <script defer src="views/assets/_common/scripts/sidebar.js"></script>
+  <script type="module" src="views/assets/admin/scripts/agendamentos-admin.js"></script>
+</body>
+</html>
